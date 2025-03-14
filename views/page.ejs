@@ -1,0 +1,31 @@
+<%-include("partials/head")%>
+
+<div class = "main-frame box shadow flex-column">
+    <h1 class = "title">APP STATISTICS</h1>
+    <div class = "container box">
+        <div class = "cpu resource flex-column">
+            <h2>CPU Usage</h2>
+            <p class = "read" id = "cpu"><%=CPU || "1"%>%</p>
+        </div>
+    
+        <div class = "ram resource flex-column">
+            <h2>RAM Usage</h2>
+            <p class = "read" id = "ram"><%=RAM || "1"%> MB</p>
+        </div>
+
+        <div class = "resource flex-column">
+            <h2>LOGS</h2>
+            <div class = "logs flex-scroll">
+                <%LOGS.forEach((log) => {%>
+                    <div class = "log flex-column">
+                        <h3><%=log.date%></h3>
+                        <p>CPU: <%=log.cpu%>%</p>
+                        <p>RAM: <%=log.ram%> MB</p>
+                    </div>
+                <%})%>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%-include("partials/foot")%>
